@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Signup Page</title>
+    <style>
+        body {
+            /* font-family: Arial, sans-serif; */
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #000000; /* Set background color to black */
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff; 
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            color: #000; 
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 8px;
+        }
+
+        input {
+            padding: 8px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .switch-page {
+            margin-top: 16px;
+            text-align: center;
+        }
+
+        .switch-page a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .switch-page a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="loginContainer">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="loginUsername">Email:</label>
+            <input type="email" id="loginUsername" name="loginUsername" required>
+
+            <label for="loginPassword">Password:</label>
+            <input type="password" id="loginPassword" name="loginPassword" required>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <div class="switch-page">
+            <p>Don't have an account? <a href="#" onclick="toggleForm('signupContainer')">Signup here</a>.</p>
+        </div>
+    </div>
+
+    <div class="container" id="signupContainer" style="display: none;">
+        <h2>Signup</h2>
+        <form id="signupForm">
+            <label for="signupUsername">Username:</label>
+            <input type="email" id="signupUsername" name="signupUsername" required>
+
+            <label for="signupEmail">Email:</label>
+            <input type="email" id="signupEmail" name="signupEmail" required>
+
+            <label for="signupPassword">Password:</label>
+            <input type="password" id="signupPassword" name="signupPassword" required>
+
+            <button type="submit">Signup</button>
+        </form>
+
+        <div class="switch-page">
+            <p>Already have an account? <a href="#" onclick="toggleForm('loginContainer')">Login here</a>.</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleForm(containerId) {
+            document.getElementById('loginContainer').style.display = containerId === 'loginContainer' ? 'block' : 'none';
+            document.getElementById('signupContainer').style.display = containerId === 'signupContainer' ? 'block' : 'none';
+        }
+    </script>
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyDTmKshmNuTPVKW_kcIba8yc2XsqgLKsUs",
+      authDomain: "binary-brains-fb0cd.firebaseapp.com",
+      projectId: "binary-brains-fb0cd",
+      storageBucket: "binary-brains-fb0cd.appspot.com",
+      messagingSenderId: "259227085819",
+      appId: "1:259227085819:web:a57991ad584d2fdf04795e",
+      measurementId: "G-4VSTZTRLSQ"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
+</body>
+
+</html>
